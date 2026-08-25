@@ -1,0 +1,4 @@
+SYNTHETIC CV — Candidate_002
+DevOps engineer.
+Skills: Linux, Docker, K8s, GitLab, CI/CD, infrastructure automation and Python.
+Experience: container orchestration and deployment pipelines.

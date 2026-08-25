@@ -1,0 +1,4 @@
+session_id,pathway_id,status,start_date
+SESSION-001,DATA-001,scheduled,2024-02-01
+SESSION-002,DEVOPS-001,scheduled,2024-02-05
+SESSION-003,DEV-001,completed,2024-01-08

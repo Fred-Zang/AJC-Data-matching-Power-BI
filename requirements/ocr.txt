@@ -1,0 +1,5 @@
+-r common.txt
+pypdf>=5,<7
+pytesseract>=0.3.13,<0.4
+Pillow>=11,<13
+pdf2image>=1.17,<2

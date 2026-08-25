@@ -1,0 +1,72 @@
+services:
+  demo:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.pipeline
+    user: "${AJC_UID:-1000}:${AJC_GID:-1000}"
+    environment:
+      AJC_RUNTIME_ROOT: /runtime
+      AJC_REFERENCE_ROOT: /app/examples/reference
+      AJC_CV_ROOT: /app/examples/cv
+      AJC_SOURCE_EXPORT_ROOT: /app/examples/source_exports
+    volumes:
+      - ./runtime:/runtime:rw
+    command: ["python", "-m", "ajc_cv_matching", "demo", "--reset"]
+    network_mode: none
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  ocr:
+    profiles: ["ocr"]
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ocr
+    user: "${AJC_UID:-1000}:${AJC_GID:-1000}"
+    environment:
+      AJC_RUNTIME_ROOT: /runtime
+      AJC_REFERENCE_ROOT: /app/examples/reference
+      AJC_CV_ROOT: /documents
+      AJC_SOURCE_EXPORT_ROOT: /app/examples/source_exports
+      AJC_OCR_LANGUAGE: "${AJC_OCR_LANGUAGE:-fra+eng}"
+    volumes:
+      - ./runtime:/runtime:rw
+      - ./examples/cv:/documents:ro
+    command: ["python", "-m", "ajc_cv_matching", "match", "--cv-dir", "/documents", "--reference-root", "/app/examples/reference", "--output-dir", "/runtime/results"]
+    network_mode: none
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+  source-sync:
+    profiles: ["remote"]
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.sources
+    user: "${AJC_UID:-1000}:${AJC_GID:-1000}"
+    environment:
+      AJC_ALLOWED_REMOTE_HOSTS: "${AJC_ALLOWED_REMOTE_HOSTS:-}"
+      QUEST_EXPORT_URLS: "${QUEST_EXPORT_URLS:-}"
+      NOCRM_EXPORT_URL: "${NOCRM_EXPORT_URL:-}"
+      NOCRM_API_KEY: "${NOCRM_API_KEY:-}"
+      BEETWEEN_EXPORT_URL: "${BEETWEEN_EXPORT_URL:-}"
+      BEETWEEN_BEARER_TOKEN: "${BEETWEEN_BEARER_TOKEN:-}"
+      AJC_RUNTIME_ROOT: /runtime
+    volumes:
+      - ./runtime:/runtime:rw
+    command: ["python", "-m", "ajc_cv_matching", "sync-remote", "--output-dir", "/runtime/staging/remote"]
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL

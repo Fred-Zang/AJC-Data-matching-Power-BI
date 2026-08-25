@@ -1,0 +1,4 @@
+SYNTHETIC CV — Candidate_003
+Software developer.
+Skills: C++, C#, .NET, SQL, object oriented development and software architecture.
+Experience: application development and technical design.

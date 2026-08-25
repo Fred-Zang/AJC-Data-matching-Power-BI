@@ -1,0 +1,63 @@
+# Secrets / local configuration
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Runtime / generated outputs
+runtime/*
+!runtime/.gitkeep
+*.log
+
+# Databases / real datasets
+*.db
+*.sqlite
+*.sqlite3
+*.pkl
+*.pickle
+*.parquet
+*.pbix
+
+# Documents and office exports: public examples are intentionally text/CSV only
+*.pdf
+*.doc
+*.docx
+*.odt
+*.rtf
+*.xls
+*.xlsx
+*.xlsm
+
+# Images can contain personal data in this project; do not commit by default
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.bmp
+
+# Generic raw exports
+*.jsonl
+*.zip
+*.7z
+*.tar
+*.gz

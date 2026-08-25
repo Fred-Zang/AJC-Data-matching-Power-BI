@@ -1,0 +1,4 @@
+SYNTHETIC CV — Candidate_001
+Data analyst profile.
+Skills: Python 3, SQL, data modelling, Power BI, Excel and Docker.
+Projects: reporting dashboards, data quality controls and automated ETL.

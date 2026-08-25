@@ -1,0 +1,23 @@
+# Small synthetic list used only by the public demo.
+A
+AN
+AND
+THE
+OF
+TO
+IN
+FOR
+WITH
+ET
+DE
+DES
+DU
+LA
+LE
+LES
+UN
+UNE
+EN
+POUR
+AVEC
+SUR

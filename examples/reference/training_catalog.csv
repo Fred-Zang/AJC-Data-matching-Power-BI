@@ -1,0 +1,10 @@
+pathway_id,pathway_title,module_title
+DATA-001,Data Analyst Python,Python fundamentals
+DATA-001,Data Analyst Python,SQL and data modelling
+DATA-001,Data Analyst Python,Power BI reporting
+DEVOPS-001,DevOps Cloud,Docker and containerisation
+DEVOPS-001,DevOps Cloud,Kubernetes and orchestration
+DEVOPS-001,DevOps Cloud,Linux Git and CI CD
+DEV-001,Software Development,C++ and object oriented development
+DEV-001,Software Development,.NET and C# application development
+DEV-001,Software Development,SQL and software architecture
