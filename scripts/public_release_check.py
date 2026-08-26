@@ -11,7 +11,10 @@ TEXT_SUFFIXES = {".py", ".md", ".txt", ".csv", ".yml", ".yaml", ".toml", ".examp
 PATTERNS = {
     "JWT/Bearer token": re.compile(r"Bearer\s+eyJ[A-Za-z0-9._-]{20,}", re.I),
     "private home path": re.compile(r"/home/[A-Z0-9._-]+(?:/|\\b)", re.I),
-    "Windows production path": re.compile(r"[A-Z]:[/\\].*(?:projet|AJC)", re.I),
+    "Windows production path": re.compile(
+    r"(?<![A-Z0-9])[A-Z]:[/\\][^\r\n]*(?:projet|AJC)",
+    re.I,
+),
     "email address": re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", re.I),
     "hard-coded credential": re.compile(r"(?i)(?:api[_-]?key|client[_-]?secret|bearer[_-]?token)\s*=\s*[\"'][^\"']{8,}[\"']"),
 }
