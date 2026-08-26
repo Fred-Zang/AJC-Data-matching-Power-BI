@@ -7,6 +7,9 @@
 ![Privacy](https://img.shields.io/badge/Data-synthetic%20only-success)
 ![AI](https://img.shields.io/badge/Generative_AI-none-informational)
 
+🌐 **Présentation visuelle du projet :**  
+https://zang-iaconsulting.com/projects/ajc-data.html
+
 ## 🎯 Contexte
 
 Les équipes recrutement et formation exploitaient un volume important de CV hétérogènes ainsi que plusieurs sources métier séparées. Le besoin était double :
